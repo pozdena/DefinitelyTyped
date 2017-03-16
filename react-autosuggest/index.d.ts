@@ -1,14 +1,11 @@
 // Type definitions for react-autosuggest 8.0
 // Project: http://react-autosuggest.js.org/
-// Definitions by: Nicolas Schmitt <https://github.com/nicolas-schmitt>, Philip Ottesen <https://github.com/pjo256>, Robert Essig <https://github.com/robessog>, Terry Bayne <https://github.com/tbayne>
+// Definitions by: Nicolas Schmitt <https://github.com/nicolas-schmitt>, Philip Ottesen <https://github.com/pjo256>, Robert Essig <https://github.com/robessog>, Terry Bayne <https://github.com/tbayne>, Les Pozdena <https://github.com/pozdena>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.1
 
 
 import * as React from 'react';
-declare class Autosuggest extends React.Component<any, any> {}
-
-export = Autosuggest;
 
 declare namespace Autosuggest {
   interface SuggestionsFetchRequest {
@@ -55,7 +52,7 @@ declare namespace Autosuggest {
     suggestionsContainer?: string;
   }
 
-  interface AutosuggestProps extends React.Props<Autosuggest> {
+  interface AutosuggestProps extends React.Props<any> {
     suggestions: any[];
     onSuggestionsFetchRequested: (request: SuggestionsFetchRequest) => void;
     onSuggestionsClearRequested?: () => void;
@@ -70,10 +67,13 @@ declare namespace Autosuggest {
     multiSection?: boolean;
     renderSectionTitle?: (section: any, inputValues: InputValues) => JSX.Element;
     getSectionSuggestions?: (section: any) => any[];
-    renderInputComponent?: () => JSX.Element;
+    renderInputComponent?: (inputProps: any) => JSX.Element;
     renderSuggestionsContainer?: (children: any) => JSX.Element;
     theme?: Theme;
     id?: string;
   }
-
 }
+
+declare class Autosuggest extends React.Component<Autosuggest.AutosuggestProps, {}> {}
+
+export = Autosuggest
