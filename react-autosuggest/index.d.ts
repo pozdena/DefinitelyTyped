@@ -57,7 +57,7 @@ declare namespace Autosuggest {
     onSuggestionsFetchRequested: (request: SuggestionsFetchRequest) => void;
     onSuggestionsClearRequested?: () => void;
     getSuggestionValue: (suggestion: any) => any;
-    renderSuggestion: (suggestion: any, inputValues: InputValues) => JSX.Element;
+    renderSuggestion: (suggestion: any, suggestionData: {query: string}) => JSX.Element;
     inputProps: InputProps;
     onSuggestionSelected?: (event: React.FormEvent<any>, data: SuggestionSelectedEventData<any>) => void;
     shouldRenderSuggestions?: (value: string) => boolean;
@@ -69,6 +69,7 @@ declare namespace Autosuggest {
     getSectionSuggestions?: (section: any) => any[];
     renderInputComponent?: (inputProps: any) => JSX.Element;
     renderSuggestionsContainer?: (children: any) => JSX.Element;
+    highlightFirstSuggestion?: boolean;
     theme?: Theme;
     id?: string;
   }
